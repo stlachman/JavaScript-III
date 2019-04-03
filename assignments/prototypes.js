@@ -17,7 +17,7 @@
 */
 
 function GameObject(attrs) {
-  this.createdAt = attrs.createAt;
+  this.createdAt = attrs.createdAt;
   this.name = attrs.name;
   this.dimensions = attrs.dimensions;
 }
@@ -42,7 +42,7 @@ function CharacterStats(attrs) {
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
 CharacterStats.prototype.takeDamage = function() {
-  return `${this} took damage`;
+  return `${this.name} took damage`;
 };
 
 
