@@ -19,7 +19,7 @@ function example() {
   // the 'this' keyword will be set to the window object
   console.log("Hello!");
 }
-example();
+// example();
 
 // Principle 2
 
@@ -33,7 +33,7 @@ const exampleObject = {
   }
 }
 
-console.log(exampleObject.word());
+// console.log(exampleObject.word());
 
 // Principle 3
 function Lizard(attributes) {
@@ -53,7 +53,7 @@ const anole = new Lizard({
 });
 // this refers to the specific object that is created by the constructor function, in this case anole
 
-console.log(anole.moves());
+// console.log(anole.moves());
 
 
 // code example for New Binding
@@ -68,6 +68,6 @@ const houseAttrs = {
   bedrooms: 3
 };
 
-console.log(house.call(houseAttrs));
+// console.log(house.call(houseAttrs));
 
 // code example for Explicit Binding
