@@ -3,7 +3,7 @@
 *\
 * 1. The first principle of the this keyword refers to when this refences the window or global object.
 * 2. When a function is invoked, look to the left of the dot to the object and that is what the `this` keyword will reference.
-* 3. The `this` keyword is bound to the object being created by the when the new keyword is used from a class constructor.
+* 3. The `this` keyword is bound to the object being created by the constructor function when that function is invoked with the new keyword.
 * 4. The `this` keyword is explicitly applied whenever you invoke the call, apply, or bind methods. In the example below,
 the this keyword within the function house is set to the context defined within the houseAttrs object. 
 *
@@ -19,7 +19,7 @@ function example() {
   // the 'this' keyword will be set to the window object
   console.log("Hello!");
 }
-// example();
+example();
 
 // Principle 2
 
@@ -33,27 +33,27 @@ const exampleObject = {
   }
 }
 
-// console.log(exampleObject.word());
+exampleObject.word();
 
 // Principle 3
 function Lizard(attributes) {
   this.species = attributes.species;
   this.color = attributes.color;
   this.size = attributes.size;
+  this.moves = function () {
+    console.log(this);
+    console.log('Moves fast');
+  };
 }
 
 const anole = new Lizard({
   species: 'green anole',
   color: 'green',
-  size: 'small',
-  moves: function() {
-    console.log(this);
-    console.log('Moves fast');
-  }
+  size: 'small'
 });
 // this refers to the specific object that is created by the constructor function, in this case anole
 
-// console.log(anole.moves());
+anole.moves();
 
 
 // code example for New Binding
@@ -68,6 +68,6 @@ const houseAttrs = {
   bedrooms: 3
 };
 
-// console.log(house.call(houseAttrs));
+house.call(houseAttrs);
 
 // code example for Explicit Binding
